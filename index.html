@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Future Wife | Feb 25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --pink: #ff4d6d;
+            --dark-love: #590d22;
+            --soft: #fff0f3;
+        }
+
+        * { box-sizing: border-box; }
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft);
+            color: var(--dark-love);
+            overflow-x: hidden;
+        }
+
+        /* Step Management */
+        .step {
+            display: none;
+            min-height: 100vh;
+            width: 100vw;
+            padding: 40px 20px;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .step.active { display: flex; }
+
+        h1 { font-family: 'Dancing Script'; font-size: 2.8rem; color: var(--pink); margin: 10px 0; }
+        h2 { font-family: 'Dancing Script'; font-size: 2.2rem; color: var(--pink); }
+
+        .btn-next {
+            background: var(--pink);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            z-index: 10;
+        }
+
+        /* Letter Box */
+        .letter {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 700px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--pink);
+            margin: 20px auto;
+            white-space: pre-line;
+        }
+
+        /* Video Container */
+        .video-wrapper {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin: 15px 0;
+            background: #000;
+        }
+        video { width: 100%; display: block; }
+
+        /* Memory Slider */
+        .slider-box {
+            width: 300px; height: 400px;
+            overflow: hidden; border-radius: 20px;
+            border: 5px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .slider-track { display: flex; transition: 0.5s; height: 100%; }
+        .slider-track img { width: 300px; height: 100%; object-fit: cover; flex-shrink: 0; }
+
+        /* Floating Items */
+        .floating {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        
+        .blast-btn { background: #ff0054; animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    </style>
+</head>
+<body>
+
+    <div id="floating-container"></div>
+
+    <!-- STEP 0: INTRO VIDEO -->
+    <div class="step active" id="step0">
+        <h1>Happy Birthday, My Queen ❤️</h1>
+        <div class="video-wrapper">
+            <video id="vid-intro" loop muted playsinline autoplay>
+                <source src="https://image2url.com/r2/default/videos/1771944424143-b2de0c4b-5cbd-4512-916d-d65c8667b31d.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="letter" style="text-align: center;">
+            "Aaj 25 Feb hai, tumhara birthday...
+            Maine ye special surprise sirf tumhare liye banaya hai. 
+            Isme mere dil ki har wo baat hai jo shayad main kabhi bol nahi paya.
+            End tak dekhna, kyunki har page pe ek naya surprise hai."
+        </div>
+        <button class="btn-next" onclick="startExperience()">See My Memories with You ❤️</button>
+    </div>
+
+    <!-- STEP 1: MEMORIES -->
+    <div class="step" id="step1">
+        <h2>Our Beautiful Memories 📸</h2>
+        <div class="slider-box">
+            <div class="slider-track" id="slider">
+                <img src="https://i.ibb.co/S4dqMfPd/image.jpg">
+                <img src="https://i.ibb.co/Wv7NBDZx/image.jpg">
+                <img src="https://i.ibb.co/35bSXYQT/image.jpg">
+                <img src="https://i.ibb.co/0RX23rYL/image.jpg">
+                <img src="https://i.ibb.co/5hLMBFBX/image.jpg">
+                <img src="https://i.ibb.co/27NNm4Nc/image.jpg">
+                <img src="https://i.ibb.co/FbKrksBx/image.jpg">
+                <img src="https://i.ibb.co/B51xZ9Qt/image.jpg">
+                <img src="https://i.ibb.co/SDMbSk0J/image.jpg">
+                <img src="https://i.ibb.co/BHrfg8MN/image.jpg">
+                <img src="https://i.ibb.co/hk8t6kk/image.jpg">
+            </div>
+        </div>
+        <div class="letter">
+            "Ye saari photos mere liye sirf images nahi, hamari kahani hain. 
+            Jab bhi main udas hota hoon, in tasveeron ko dekh kar muskura deta hoon. 
+            Tumhari hansi meri sabse badi taqat hai. 
+            
+            Main chahta hoon hamari aisi hazaron photos aur hon, par as a Husband-Wife, as life partners. 
+            Tum sirf meri crush nahi ho, tum mera sukoon ho."
+        </div>
+        <button class="btn-next" onclick="nextStep(2)">About My Trust... ↓</button>
+    </div>
+
+    <!-- STEP 2: TRUST -->
+    <div class="step" id="step2">
+        <h2>I Promise To Never Leave... 🤝</h2>
+        <div class="video-wrapper">
+            <video id="vid1" loop muted playsinline>
+                <source src="https://image2url.com/r2/default/videos/1771943834722-e6cf3a23-5e60-476a-b3dc-2ffb153597d5.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="letter">
+            "Mujhe pata hai tumhare ex ne tumhe dhokha diya aur tumhe akela chor diya. 
+            Isliye aaj tumhe kisi par trust karne mein darr lagta hai. 
+            
+            Par meri jaan, main un jaisa nahi hoon. Main tumhe raste mein chorne ke liye nahi, balki tumhare saath rasta banane aaya hoon. 
+            Main tumhare past ke zakhmon ko bharna chahta hoon. Main hamesha tumhara dhaal ban kar khada rahunga. Trust me."
+        </div>
+        <button class="btn-next" onclick="nextStep(3)">Why I Overthink... ↓</button>
+    </div>
+
+    <!-- STEP 3: OVERTHINKING -->
+    <div class="step" id="step3">
+        <h2>Because I Love You Too Much ❤️</h2>
+        <div class="video-wrapper">
+            <video id="vid3" loop muted playsinline>
+                <source src="https://image2url.com/r2/default/videos/1771944167421-9b041fbb-e05d-4471-9e93-23b49cf1f924.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="letter">
+            "Main overthink karta hoon kyunki main tumhe khone se darta hoon. 
+            Mujhe darr lagta hai ki koi mujhse behtar tumhe mil gaya toh tum mujhe bhool jaogi. 
+            Mera ye overthinking mere pyar ka hi ek hissa hai. 
+            
+            Main tumhe kisi aur ke saath imagine bhi nahi kar sakta. 
+            Tum mere liye is duniya ki sabse keemati insaan ho."
+        </div>
+        <button class="btn-next" onclick="nextStep(4)">A Big Surprise ↓</button>
+    </div>
+
+    <!-- STEP 4: BLAST -->
+    <div class="step" id="step4">
+        <h2>Something Special for You! 🎈</h2>
+        <button class="btn-next blast-btn" onclick="blastEffect()">CLICK FOR SURPRISE! 💥</button>
+        <div id="blast-msg" style="display:none; margin-top:20px;">
+            <div class="video-wrapper">
+                <video id="vid2" loop muted playsinline>
+                    <source src="https://image2url.com/r2/default/videos/1771943805933-e2e4a7e4-4963-400a-be57-3392caa50126.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="letter">
+                "Main tumhe apni **WIFE** banana chahta hoon. 
+                Tumhare saath wo har sapna pura karna chahta hoon jo tumne dekha hai. 
+                I want to grow old with you. I want to be the reason for your smile every morning."
+            </div>
+            <button class="btn-next" onclick="nextStep(5)">Final Question... ❤️</button>
+        </div>
+    </div>
+
+    <!-- STEP 5: PROPOSAL -->
+    <div class="step" id="step5">
+        <h1>Be Mine Officially? 💍</h1>
+        <div class="letter" style="text-align: center;">
+            "Maine apna sab kuch bol diya. 
+            Ab tumhari baari hai... Kya tum hamesha ke liye meri banogi? 
+            Kya tum mujhpar bharosa karogi ki main tumhe kabhi rone nahi dunga? 
+            
+            I Love You so much."
+        </div>
+        <div style="display:flex; gap:15px; margin-top:20px;">
+            <a href="https://wa.me/919242960211?text=Yes! I love you so much and I want to be yours officially! ❤️" class="btn-next" style="background:#25d366; text-decoration:none;">YES, FOREVER! ❤️</a>
+            <button class="btn-next" style="background:#888;" onclick="alert('System Error: You can only choose YES! 😉')">NO</button>
+        </div>
+    </div>
+
+    <audio id="song1" src="https://useful-maroon-vgenwkv8c0.edgeone.app/Humnava%20_%20(Slowed%20+%20Reverb)%20by%20SLOWED-ERA%20(mp3cut.net).mp3"></audio>
+    <!-- UPDATED SECOND SONG -->
+    <audio id="song2" src="https://proud-maroon-kqyfjqrche.edgeone.app/pal%20pal%20dil%20ke%20paas%20slowed%20reverb%20(mp3cut.net).mp3"></audio>
+
+    <script>
+        let currentStep = 0;
+        const s1 = document.getElementById('song1');
+        const s2 = document.getElementById('song2');
+
+        function startExperience() {
+            nextStep(1);
+            s1.play();
+            setTimeout(() => { s1.pause(); s2.play(); }, 60000);
+        }
+
+        function nextStep(n) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${n}`).classList.add('active');
+            window.scrollTo(0,0);
+            
+            if(n === 2) document.getElementById('vid1').play();
+            if(n === 3) document.getElementById('vid3').play();
+            if(n === 1) startSlider();
+        }
+
+        function blastEffect() {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ffffff'] });
+            document.getElementById('blast-msg').style.display = 'block';
+            document.getElementById('vid2').play();
+        }
+
+        function startSlider() {
+            const track = document.getElementById('slider');
+            let idx = 0;
+            setInterval(() => {
+                idx = (idx + 1) % 11;
+                track.style.transform = `translateX(-${idx * 300}px)`;
+            }, 2500);
+        }
+
+        const items = ['❤️', '🧸', '🌹', '💖', '💍'];
+        function createFloating() {
+            const div = document.createElement('div');
+            div.className = 'floating';
+            div.innerHTML = items[Math.floor(Math.random() * items.length)];
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.fontSize = Math.random() * 20 + 20 + 'px';
+            div.style.animationDuration = Math.random() * 3 + 4 + 's';
+            document.getElementById('floating-container').appendChild(div);
+            setTimeout(() => div.remove(), 6000);
+        }
+        setInterval(createFloating, 400);
+    </script>
+</body>
+</html>
